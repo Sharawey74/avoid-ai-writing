@@ -2408,9 +2408,10 @@ const AIDetector = (() => {
     // to trigger and would drown out other signals. The detector-
     // research lens flagged TTR as one of four stylometric add-ons.
     // Two of the others have since shipped in approximated form:
-    // `fnword-trigram-entropy` stands in for function-word z-scores,
-    // and `cross-para-burstiness` for sentence-length burstiness.
-    // POS-bigram log-odds is still TODO — it needs a tagger.
+    // `fnword-trigram-entropy` approximates POS-trigram entropy without
+    // a tagger, and `cross-para-burstiness` covers sentence-length
+    // burstiness across paragraphs. POS-bigram log-odds and function-
+    // word z-scores are still TODO.
     if (tokens.length >= 200) {
       const unique = new Set(tokens).size;
       const ttr = unique / tokens.length;
